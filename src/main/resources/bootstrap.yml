@@ -1,0 +1,26 @@
+#
+#  server:
+#    port: 8761     #指定服务端口
+#  eureka:
+#    instance:
+#        hostname: localhost
+#    client:
+#      registerWithEureka: false  #是否将eureka自身作为应用注册到eureka注册中心
+#      fetchRegistry: false       #为true时，可以启动， 读取注册表
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    server:
+#      enable-self-preservation: false           # 关闭自我保护模式（缺省为打开:true表示开启自我保护模式）
+#      eviction-interval-timer-in-ms: 5000       # eureka server清理无效节点的时间间隔，默认60000毫秒，即60秒（60*1000ms）
+#      registry-fetch-interval-seconds: 5 # 默认为30秒
+spring:
+  application:
+    name: eureka-service
+  cloud:
+    zookeeper:
+      enabled: true
+      connectString: 127.0.0.1:2181
+      config:
+        enabled: true
+        root: /configurations/microserver
+        defaultContext: commonconfig
+        profileSeparator: ','
